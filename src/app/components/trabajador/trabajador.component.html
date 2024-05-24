@@ -1,0 +1,65 @@
+<div style="background-color: rgb(243, 214, 228);">
+<br>
+<br>
+
+
+<div class="tabla">
+  <table class="table">
+    <thead class="thead-dark">
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Especialidad</th>
+            <th>Opciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let trabajador of trabajadores">
+            <td>{{ trabajador?.id }}</td>
+            <td>{{ trabajador?.nombre }}</td>
+            <td>{{ trabajador?.apellidos }}</td>
+            <td>{{ trabajador?.especialidad }}</td>
+            <td><button type="button" class="btn btn-success" (click)="editar(trabajador)">Editar</button>
+              <button type="button" class="btn btn-danger" (click)="eliminar(trabajador.id)">Eliminar</button> </td>
+          </tr>
+        </tbody>
+      </table>
+      
+</div>
+
+<br>
+<br>
+<br>
+<br>
+
+
+
+<div class="formularioRegistro">
+  <h2>Crear trabajador</h2>
+
+  <form [formGroup]="trabajadorForm" (ngSubmit)="guardar()">
+      <div class="form-group">
+          <label>Nombre </label>
+          <br>
+          <input type="text" formControlName="nombre" class="form-group">
+      </div>
+      <div class="form-group">
+          <label>Apellidos </label>
+          <br>
+          <input type="text" formControlName="apellidos" class="form-group">
+      </div>
+      <div class="form-group">
+          <label>Clave </label>
+          <br>
+          <input type="password" formControlName="clave" class="form-group">
+      </div>
+      <div class="form-group">
+          <label>Especialidad </label>
+          <br>
+          <input type="text" formControlName="especialidad" class="form-group">
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="trabajadorForm.invalid">Guardar</button>
+  </form>
+</div>
+</div>

@@ -1,0 +1,29 @@
+.botonAgregar{
+    background-color: rgb(74, 200, 246); 
+    text-align: center;
+}
+
+.buttonContainer{
+    width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.tabla{
+
+    margin: 0 auto;
+    width: 100%;
+    table{
+        margin: 0 auto;
+        width: 80%;
+    }
+}
+
+
+.formularioRegistro{
+    width: 80%;
+    padding-left: 45%;
+    padding-top: 0%;
+}

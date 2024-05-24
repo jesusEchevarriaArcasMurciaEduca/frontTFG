@@ -1,0 +1,63 @@
+<div style="background-color: rgb(243, 214, 228);">
+<br><br>
+
+<div class="tabla">
+  <table class="table">
+    <thead class="thead-dark">
+          <tr>
+            <th>ID</th>
+            <th>Fecha y hora</th>
+            <th>Motivo de la Cita</th>
+            <th>clienteId</th>
+            <th>trabajadorId</th>
+            <th>Opciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cita of citas">
+            <td>{{ cita?.id }}</td>
+            <td>{{ cita?.fechaHora }}</td>
+            <td>{{ cita?.motivoCita }}</td>
+            <td>{{ cita?.clienteId }}</td>
+            <td>{{ cita?.trabajadorId }}</td>
+            <td><button type="button" class="btn btn-success" (click)="editar(cita)" >Editar</button>
+            <button type="button" class="btn btn-danger" (click)="eliminar(cita.id)">Eliminar</button> </td>
+          </tr>
+        </tbody>
+      </table>
+      
+</div>
+
+<br>
+<br>
+<br>
+<br>
+
+<div class="formularioRegistro">
+  <h2>Crear cita</h2>
+
+  <form [formGroup]="citaForm" (ngSubmit)="guardar()">
+      <div class="form-group">
+          <label>Fecha y Hora (formato 2024-04-15T09:11)</label>
+          <br>
+          <input type="text" formControlName="fechaHora" class="form-group">
+      </div>
+      <div class="form-group">
+          <label>Motivo de la Cita </label>
+          <br>
+          <input type="text" formControlName="motivoCita"  class="form-group">
+      </div>
+      <div class="form-group">
+        <label>clienteId </label>
+        <br>
+        <input type="text" formControlName="clienteId" class="form-group">
+    </div>
+    <div class="form-group">
+        <label>trabajadorId </label>
+        <br>
+        <input type="text" formControlName="trabajadorId" class="form-group">
+    </div>
+      <button type="submit" class="btn btn-primary" [disabled]="citaForm.invalid">Guardar</button>
+  </form>
+</div>
+</div>

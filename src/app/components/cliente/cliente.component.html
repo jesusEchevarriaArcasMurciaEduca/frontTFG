@@ -1,0 +1,70 @@
+<div style="background-color: rgb(243, 214, 228);">
+
+<br>
+<br>
+
+<div class="tabla">
+  <table class="table">
+    <thead class="thead-dark">
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Teléfono</th>
+            <th>Dirección</th>
+            <th>Opciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cliente of clientes">
+            <td>{{ cliente?.id }}</td>
+            <td>{{ cliente?.nombre }}</td>
+            <td>{{ cliente?.apellidos }}</td>
+            <td>{{ cliente?.telefono }}</td>
+            <td>{{ cliente?.direccion }}</td>
+            <td><button type="button" class="btn btn-success" (click)="editar(cliente)">Editar</button>
+              <button type="button" class="btn btn-danger" (click)="eliminar(cliente.id)">Eliminar</button> </td>
+          </tr>
+        </tbody>
+      </table>
+      
+</div>
+
+<br>
+<br>
+<br>
+<br>
+
+<div class="formularioRegistro">
+  <h2>Crear cliente</h2>
+
+  <form [formGroup]="clienteForm" (ngSubmit)="guardar()">
+      <div class="form-group">
+          <label>Nombre </label>
+          <br>
+          <input type="text" formControlName="nombre" class="form-group">
+      </div>
+      <div class="form-group">
+          <label>Apellidos </label>
+          <br>
+          <input type="text" formControlName="apellidos" class="form-group">
+      </div>
+      <div class="form-group">
+          <label>Clave </label>
+          <br>
+          <input type="password" formControlName="clave" class="form-group">
+      </div>
+      <div class="form-group">
+          <label>Número de teléfono </label>
+          <br>
+          <input type="text" formControlName="telefono" class="form-group">
+      </div>
+      <div class="form-group">
+          <label>Dirección </label>
+          <br>
+          <input type="text" formControlName="direccion" class="form-group">
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="clienteForm.invalid">Guardar</button>
+  </form>
+</div>
+</div>
